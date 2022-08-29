@@ -7,6 +7,7 @@ import usersRouter from './routes/users.js'
 import productRouter from './routes/products.js'
 import ordersRouter from './routes/orders.js'
 import newsRouter from './routes/news.js'
+import contactsRouter from './routes/contacts.js'
 
 
 mongoose.connect(process.env.DB_URL)
@@ -41,6 +42,8 @@ app.use('/products', productRouter)
 app.use('/orders', ordersRouter)
 
 app.use('/news', newsRouter)
+
+app.use('/contacts', contactsRouter)
 
 app.all('*', (req,res)=>{
   res.status(400).send({ success: false, message: '找不到' })
